@@ -147,11 +147,11 @@ public class ChooseCaptainandVC extends AppCompatActivity {
         list=new ArrayList<>();
         createReqData1=new ArrayList<>();
 
-        db=new DataBase(ChooseCaptainandVC.this);
+       /* db=new DataBase(ChooseCaptainandVC.this);
         cc=db.DisplayPlayer(mobile);
         cc.moveToFirst();
         do{
-            pid=cc.getString(1);
+            //pid=cc.getString(1);
             pname=cc.getString(3);
             prole=cc.getString(5);
             String pcountry=cc.getString(4);
@@ -181,7 +181,20 @@ public class ChooseCaptainandVC extends AppCompatActivity {
             CVCAdapter ca=new CVCAdapter(list,ChooseCaptainandVC.this);
             rr.setAdapter(ca);
 
-        }while (cc.moveToNext());
+        }while (cc.moveToNext());*/
+
+        for(SelectedData.data data:SelectedData.getSelectedData().getData()){
+            ModelClass mm=new ModelClass();
+            mm.setId(data.getId());
+            mm.setPname1(data.getName());
+            mm.setRole1(data.getRole());
+            mm.setTname1(data.getTeam());
+            mm.setPts1(data.getPoints());
+            list.add(mm);
+        }
+
+        CVCAdapter ca=new CVCAdapter(list,ChooseCaptainandVC.this);
+        rr.setAdapter(ca);
 
     }
 
