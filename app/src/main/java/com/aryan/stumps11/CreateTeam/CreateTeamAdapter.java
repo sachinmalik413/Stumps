@@ -396,7 +396,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
         holder.cb.setChecked(check);
 //        holder.cb.setChecked(Update(key));
 
-        holder.cb.setOnClickListener(new View.OnClickListener() {
+        /*holder.cb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -404,7 +404,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 
 
             }
-        });
+        });*/
 
 
 
@@ -703,7 +703,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView ii;
         CheckBox cb;
         TextView ttname,ttstatus,ttpts,ttcredits,ttcountry;
@@ -718,12 +718,16 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
             ttpts=itemView.findViewById(R.id.textView65);
             ttcredits=itemView.findViewById(R.id.textView66);
  ;           ttcountry=itemView.findViewById(R.id.textView68);
-            //cb.setOnCheckedChangeListener(this);
+            cb.setOnClickListener(this);
         }
 
+
+
         @Override
-        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            updateCheckValues(b,getAdapterPosition(),cb,rr);
+        public void onClick(View view) {
+            String key = "Hello" + list.get(getAdapterPosition()).getPname() + getAdapterPosition();
+            boolean check = SelectedData.getSelectedData().getPlayer(key);
+            updateCheckValues((!check),getAdapterPosition(),cb,rr);
         }
     }
 
@@ -755,7 +759,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                     int value = fun(d, 1, key, cb, "wk");
 
 
-                    if (value < 4 && b == true) {
+                    if (wk < 4 && b == true) {
 
                         fun11(d, key, cb, 11);
                         fun7(d, 7, key, cb, list.get(position).getCountry());
@@ -779,6 +783,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             cb.setChecked(false);
                         }
                     } else {
+                        Log.e(TAG, "updateCheckValues: "+b+" "+value );
 //                            d.Remove(mm.getPname());
                         Save(key, false);
                         SelectedData.getSelectedData().putPlayer(key,false);
@@ -793,7 +798,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                 if (list.get(position).getRole().equals("bat")) {
                     int value = fun(d, 6, key, cb, "bat");
 
-                    if (value < 6 && b == true) {
+                    if (bat < 6 && b == true) {
                         fun11(d, key, cb, 11);
                         fun7(d, 7, key, cb, list.get(position).getCountry());
 
@@ -825,7 +830,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                 if (list.get(position).getRole().equals("all")) {
                     int value = fun(d, 6, key, cb, "all");
 
-                    if (value < 4 && b == true) {
+                    if (all < 4 && b == true) {
                         fun11(d, key, cb, 11);
                         fun100(d);
                         fun7(d, 7, key, cb, list.get(position).getCountry());
@@ -858,7 +863,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                 if (list.get(position).getRole().equals("bowl")) {
                     int value = fun(d, 6, key, cb, "bowl");
 
-                    if (value < 6 && b == true) {
+                    if (bwl < 6 && b == true) {
                         fun100(d);
                         fun11(d, key, cb, 11);
                         fun7(d, 7, key, cb, list.get(position).getCountry());

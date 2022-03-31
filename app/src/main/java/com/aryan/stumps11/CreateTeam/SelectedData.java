@@ -29,6 +29,11 @@ public class SelectedData {
         }
     }
 
+    public void clearData(){
+        map.clear();
+        data.clear();
+    }
+
     public void putPlayer(String key, boolean b){
         map.put(key,b);
     }

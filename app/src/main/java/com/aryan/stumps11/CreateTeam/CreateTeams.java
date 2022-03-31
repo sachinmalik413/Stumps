@@ -585,4 +585,9 @@ public class CreateTeams extends AppCompatActivity implements SharedPreferences.
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SelectedData.getSelectedData().clearData();
+    }
 }
