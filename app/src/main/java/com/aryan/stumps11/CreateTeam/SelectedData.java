@@ -15,9 +15,10 @@ public class SelectedData {
 
     private static final HashMap<String,Boolean> map = new HashMap<>();
     private static final List<data> data = new ArrayList<>();
+    private static final HashMap<String,data> captainMap = new HashMap<>();
 
-    public List<data> getData(){
-        return data;
+    public HashMap<String,data> getData(){
+        return captainMap;
     }
 
     public boolean getPlayer(String key){

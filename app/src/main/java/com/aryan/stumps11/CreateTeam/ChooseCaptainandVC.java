@@ -183,7 +183,7 @@ public class ChooseCaptainandVC extends AppCompatActivity {
 
         }while (cc.moveToNext());*/
 
-        for(SelectedData.data data:SelectedData.getSelectedData().getData()){
+        for(SelectedData.data data:SelectedData.getSelectedData().getData().values()){
             ModelClass mm=new ModelClass();
             mm.setId(data.getId());
             mm.setPname1(data.getName());

@@ -770,7 +770,8 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                         if ((count < 1 && full < 11) || countrycount < 7) {
 
                             d.Save(list.get(position).getPname(), list.get(position).getRole(), list.get(position).getCountry(), list.get(position).getPname1());
-                            SelectedData.getSelectedData().getData().add(new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
+                            SelectedData.getSelectedData().getData().put(list.get(position).getId(),new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
+                            //SelectedData.getSelectedData().getData().add(new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
                             hello++;
                             wk++;
                             creditPoints++;
@@ -806,7 +807,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 
                         if ((count < 6 && full < 11) || countrycount < 7) {
                             d.Save(list.get(position).getPname(), list.get(position).getRole(), list.get(position).getCountry(), list.get(position).getPoints());
-                            SelectedData.getSelectedData().getData().add(new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
+                            SelectedData.getSelectedData().getData().put(list.get(position).getId(),new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
                             Save(key, true);
                             SelectedData.getSelectedData().putPlayer(key,true);
                             hello++;
@@ -836,7 +837,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                         fun7(d, 7, key, cb, list.get(position).getCountry());
                         if ((count < 6 && full < 11) || countrycount < 7) {
                             d.Save(list.get(position).getPname(), list.get(position).getRole(), list.get(position).getCountry(), list.get(position).getPoints());
-                            SelectedData.getSelectedData().getData().add(new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
+                            SelectedData.getSelectedData().getData().put(list.get(position).getId(),new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
                             Save(key, true);
                             SelectedData.getSelectedData().putPlayer(key,true);
                             hello++;
@@ -870,7 +871,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 
                         if ((count < 6 && full < 11) || countrycount < 7) {
                             d.Save(list.get(position).getPname(), list.get(position).getRole(), list.get(position).getCountry(), list.get(position).getPoints());
-                            SelectedData.getSelectedData().getData().add(new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
+                            SelectedData.getSelectedData().getData().put(list.get(position).getId(),new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
                             Save(key, true);
                             SelectedData.getSelectedData().putPlayer(key,true);
                             hello++;
