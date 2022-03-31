@@ -604,9 +604,54 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 
         if(full==c){
             Save(key,false);
-            SelectedData.getSelectedData().putPlayer(key,false);
+            putPlayer(key,false);
             cb.setChecked(false);
             Toast.makeText(cc, "You Can not Select Max 11 Players.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void putPlayer(String key, boolean b){
+        if (!(SelectedData.getSelectedData().putPlayer(key,b))){
+            Toast.makeText(cc, "Max 11 Players.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void playerCount(SelectedData.Role role,int status){
+        switch (role){
+            case WK:
+                    if(SelectedData.getWicketKeeper() < 4){
+                        SelectedData.setWicketKeeper((SelectedData.getWicketKeeper() + status));
+                    }
+                    else{
+                        Toast.makeText(cc, "Max 4 Wicket Keeper.", Toast.LENGTH_SHORT).show();
+                    }
+
+                break;
+            case BAT:
+                    if(SelectedData.getBatsman() < 6){
+                        SelectedData.setBatsman((SelectedData.getBatsman() + status));
+                    }
+                    else{
+                        Toast.makeText(cc, "Max 6 Batsman.", Toast.LENGTH_SHORT).show();
+                    }
+
+                break;
+            case BOWL:
+                    if(SelectedData.getBowler() < 6){
+                        SelectedData.setBowler((SelectedData.getBowler() + status));
+                    }
+                    else{
+                        Toast.makeText(cc, "Max 6 Bowler.", Toast.LENGTH_SHORT).show();
+                    }
+                break;
+            case ALL:
+                    if(SelectedData.getAllRounder() < 6){
+                        SelectedData.setAllRounder((SelectedData.getAllRounder() + status));
+                    }
+                    else{
+                        Toast.makeText(cc, "Max 6 all rounder.", Toast.LENGTH_SHORT).show();
+                    }
+                break;
         }
     }
 
@@ -659,7 +704,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 
         if(countrycount==c){
             Save(key,false);
-            SelectedData.getSelectedData().putPlayer(key,false);
+            putPlayer(key,false);
             cb.setChecked(false);
             Toast.makeText(cc, "You Can not Select all Players From a Team.", Toast.LENGTH_SHORT).show();
         }
@@ -776,18 +821,21 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             wk++;
                             creditPoints++;
                             Save(key, true);
-                            SelectedData.getSelectedData().putPlayer(key,true);
+                            putPlayer(key,true);
+                            playerCount(SelectedData.Role.WK,1);
 
                         } else {
                             Save(key, false);
-                            SelectedData.getSelectedData().putPlayer(key,false);
+                            putPlayer(key,false);
+                            playerCount(SelectedData.Role.WK,-1);
                             cb.setChecked(false);
                         }
                     } else {
                         Log.e(TAG, "updateCheckValues: "+b+" "+value );
 //                            d.Remove(mm.getPname());
                         Save(key, false);
-                        SelectedData.getSelectedData().putPlayer(key,false);
+                        putPlayer(key,false);
+                        playerCount(SelectedData.Role.WK,-1);
                         cb.setChecked(false);
                         Toast.makeText(cc, "you can select maximum four wicket keeper.", Toast.LENGTH_SHORT).show();
 
@@ -809,19 +857,22 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             d.Save(list.get(position).getPname(), list.get(position).getRole(), list.get(position).getCountry(), list.get(position).getPoints());
                             SelectedData.getSelectedData().getData().put(list.get(position).getId(),new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
                             Save(key, true);
-                            SelectedData.getSelectedData().putPlayer(key,true);
+                            putPlayer(key,true);
+                            playerCount(SelectedData.Role.BAT,1);
                             hello++;
                             bat++;
                             creditPoints++;
                         } else {
                             Save(key, false);
-                            SelectedData.getSelectedData().putPlayer(key,false);
+                            putPlayer(key,false);
+                            playerCount(SelectedData.Role.BAT,-1);
                             cb.setChecked(false);
                         }
                     } else {
                         d.Remove(mm.getPname());
                         Save(key, false);
-                        SelectedData.getSelectedData().putPlayer(key,false);
+                        putPlayer(key,false);
+                        playerCount(SelectedData.Role.BAT,-1);
                         cb.setChecked(false);
                         Toast.makeText(cc, "you can select maximum six batsman", Toast.LENGTH_SHORT).show();
 
@@ -839,22 +890,25 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             d.Save(list.get(position).getPname(), list.get(position).getRole(), list.get(position).getCountry(), list.get(position).getPoints());
                             SelectedData.getSelectedData().getData().put(list.get(position).getId(),new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
                             Save(key, true);
-                            SelectedData.getSelectedData().putPlayer(key,true);
+                            putPlayer(key,true);
                             hello++;
                             all++;
                             creditPoints++;
+                            playerCount(SelectedData.Role.ALL,1);
                         } else {
                             Save(key, false);
-                            SelectedData.getSelectedData().putPlayer(key,false);
+                            putPlayer(key,false);
                             cb.setChecked(false);
+                            playerCount(SelectedData.Role.ALL,-1);
                             Toast.makeText(cc, "you can select maximum four all rounder.", Toast.LENGTH_SHORT).show();
 
                         }
                     } else {
 //                            d.Remove(mm.getPname());
                         Save(key, false);
-                        SelectedData.getSelectedData().putPlayer(key,false);
+                        putPlayer(key,false);
                         cb.setChecked(false);
+                        playerCount(SelectedData.Role.ALL,-1);
                         Toast.makeText(cc, "you can select maximum four all rounder.", Toast.LENGTH_SHORT).show();
 
 
@@ -873,15 +927,17 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             d.Save(list.get(position).getPname(), list.get(position).getRole(), list.get(position).getCountry(), list.get(position).getPoints());
                             SelectedData.getSelectedData().getData().put(list.get(position).getId(),new SelectedData.data(list.get(position).getId(),list.get(position).getPname(),list.get(position).getTname1(),list.get(position).getRole(),list.get(position).getPname1()));
                             Save(key, true);
-                            SelectedData.getSelectedData().putPlayer(key,true);
+                            putPlayer(key,true);
                             hello++;
                             bwl++;
                             creditPoints++;
+                            playerCount(SelectedData.Role.BOWL,1);
 //
                         } else {
                             Save(key, false);
-                            SelectedData.getSelectedData().putPlayer(key,false);
+                            putPlayer(key,false);
                             cb.setChecked(false);
+                            playerCount(SelectedData.Role.BOWL,-1);
                             Toast.makeText(cc, "you can select maximum six bowler.", Toast.LENGTH_SHORT).show();
 
                         }
@@ -889,6 +945,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 //                            d.Remove(mm.getPname());
 //                        Save(key,false);
                         cb.setChecked(false);
+                        playerCount(SelectedData.Role.BOWL,-1);
                         Toast.makeText(cc, "you can select maximum six bowler.>>>>>>", Toast.LENGTH_SHORT).show();
 
 
@@ -897,7 +954,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 
             }else {
                 Save(key, false);
-                SelectedData.getSelectedData().putPlayer(key,false);
+                putPlayer(key,false);
                 rr.setBackgroundColor(Color.WHITE);
                 db.RemovePlayer(mobile, list.get(position).getId());
                 hello--;

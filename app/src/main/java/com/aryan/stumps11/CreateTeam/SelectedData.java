@@ -13,9 +13,76 @@ public class SelectedData {
         return obj;
     }
 
+    enum Role{
+        WK,BAT,BOWL,ALL
+    }
+
     private static final HashMap<String,Boolean> map = new HashMap<>();
     private static final List<data> data = new ArrayList<>();
     private static final HashMap<String,data> captainMap = new HashMap<>();
+    private static int wicketKeeper = 0;
+    private static int batsman = 0;
+    private static int bowler = 0;
+    private static int allRounder = 0;
+    private static int credit = 0;
+    private static int teamA = 0;
+    private static int teamB = 0;
+
+    public static int getWicketKeeper() {
+        return wicketKeeper;
+    }
+
+    public static void setWicketKeeper(int wicketKeeper) {
+        SelectedData.wicketKeeper = wicketKeeper;
+    }
+
+    public static int getBatsman() {
+        return batsman;
+    }
+
+    public static void setBatsman(int batsman) {
+        SelectedData.batsman = batsman;
+    }
+
+    public static int getBowler() {
+        return bowler;
+    }
+
+    public static void setBowler(int bowler) {
+        SelectedData.bowler = bowler;
+    }
+
+    public static int getAllRounder() {
+        return allRounder;
+    }
+
+    public static void setAllRounder(int allRounder) {
+        SelectedData.allRounder = allRounder;
+    }
+
+    public static int getCredit() {
+        return credit;
+    }
+
+    public static void setCredit(int credit) {
+        SelectedData.credit = credit;
+    }
+
+    public static int getTeamA() {
+        return teamA;
+    }
+
+    public static void setTeamA(int teamA) {
+        SelectedData.teamA = teamA;
+    }
+
+    public static int getTeamB() {
+        return teamB;
+    }
+
+    public static void setTeamB(int teamB) {
+        SelectedData.teamB = teamB;
+    }
 
     public HashMap<String,data> getData(){
         return captainMap;
@@ -35,8 +102,15 @@ public class SelectedData {
         data.clear();
     }
 
-    public void putPlayer(String key, boolean b){
-        map.put(key,b);
+    public boolean putPlayer(String key, boolean b){
+        if (map.size()<12){
+            map.put(key,b);
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
      static class data{
