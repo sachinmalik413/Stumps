@@ -66,313 +66,6 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
         View view=layoutInflater.inflate(R.layout.playerlayout,null);
         return new ViewHolder(view);
     }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-//        ModelClass mm = list.get(position);
-//        DataBase db = new DataBase(cc);
-//        SharedPreferences mob = cc.getSharedPreferences("Mobile", MODE_PRIVATE);
-//        mobile = mob.getString("mKey", "0");
-//
-//        Glide.with(cc).load(list.get(position).getImages());
-//        holder.ttcountry.setText(list.get(position).getTname());
-//        holder.ttcredits.setText(list.get(position).getCredits());
-//        holder.ttpts.setText(list.get(position).getPts());
-//        holder.ttstatus.setText(list.get(position).getStatus());
-//        holder.ttname.setText(list.get(position).getPname());
-//        String key = "Hello" + list.get(position).getPname() + position;
-//        holder.cb.setChecked(Update(key));
-
-//        holder.cb.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                if (hello == 11 || hello >= 11) {
-//                    Toast.makeText(cc, "Player Length is greater than 11", Toast.LENGTH_SHORT).show();
-//                }
-//
-//                if (hello > 11) {
-//                    Toast.makeText(cc, "Player Length is greater than 11", Toast.LENGTH_SHORT).show();
-//                } else {
-//
-//
-//                    SharedPreferences mob = cc.getSharedPreferences("wk", MODE_PRIVATE);
-//                    String role = mob.getString("mKey", "0");
-//
-//
-//                    sp = cc.getSharedPreferences("Counts", MODE_PRIVATE);
-//
-//                    hello = sp.getInt("Key", 0);
-//                    wk = sp.getInt("wKey", db.getwK("wk"));
-//                    bat = sp.getInt("bKey", db.getwK("bat"));
-//                    all = sp.getInt("aKey", db.getwK("all"));
-//                    bwl = sp.getInt("bwlKey", db.getwK("bwl"));
-//                    creditPoints = sp.getInt("creditPoints", crept);
-//                }
-//
-//            }
-///*                if (holder.cb.isChecked()) {
-//                    Save(key, true);*/
-////                    db.AddPlayer(list.get(position).getId(),mobile,list.get(position).getPname(),list.get(position).getTname(),list.get(position).getRole(),list.get(position).getPts(),list.get(position).getCredits(),null,null);
-//            //    Toast.makeText(cc, "Player "+list.get(position).getPname(), Toast.LENGTH_SHORT).show();
-//
-//            /* if (list.get(position).getRole().equals("wk")) {
-//             */     /*if (wk < 1 || wk >= 4) {
-//
-//                            Toast.makeText(cc, "only four wicket keeper select", Toast.LENGTH_SHORT).show();
-////                            holder.cb.setBackgroundColor(Color.WHITE);
-//
-////                            h
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//                            //    wk=sp.getInt("wKey",0);
-//
-//                            //Toast.makeText(cc, "Player "+list.get(position), Toast.LENGTH_SHORT).show();
-//                        } else if (hello == 11 || hello >= 11) {
-//
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//                            ;
-//                            Toast.makeText(cc, "You Does't Select More Than 11 Player  " + hello, Toast.LENGTH_SHORT).show();
-//
-//                        }*/
-////                    }
-//                        /*if(wk>=4){
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//                            Toast.makeText(cc, "Only 4 Wk Select  " + hello, Toast.LENGTH_SHORT).show();
-//                            Save(key,false);
-//                        } else if(hello>=11){
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//
-//                            Toast.makeText(cc, "you doesn't select more than 11" + hello, Toast.LENGTH_SHORT).show();
-//
-//
-//                        } else {
-//                            db.AddPlayer(list.get(position).getId(), mobile, list.get(position).getPname(), list.get(position).getTname(), list.get(position).getRole(), list.get(position).getPts(), list.get(position).getCredits(), null, null);
-//                            hello++;
-//                            wk++;
-//                            creditPoints++;
-//
-//*/
-//
-//
-////                            try {
-////
-////                                String cp = list.get(position).getCredits();
-////                                crept = Integer.parseInt(cp);
-////                                ArrayList<Integer> addCredit = new ArrayList<Integer>();
-////                                addCredit.add(crept);
-////
-////                                for (int totalCredit : addCredit) {
-////                                    addCreditPoint += totalCredit;
-//////                                    Toast.makeText(cc, "i<<<"+addCreditPoint, Toast.LENGTH_SHORT).show();
-////
-////
-////                                }
-////
-////                                Intent intent = new Intent("custom-message");
-////                                //            intent.putExtra("quantity",Integer.parseInt(quantity.getText().toString()));
-////                                intent.putExtra("c", addCreditPoint);
-//////                                    intent.putExtra("item",ItemName);
-////                                LocalBroadcastManager.getInstance(cc).sendBroadcast(intent);
-////
-////
-////                            } catch (Exception e) {
-////                                e.printStackTrace();
-////                            }
-//
-//            //                                Toast.makeText(cc, "You select "+hello, Toast.LENGTH_SHORT).show();
-//
-//
-////                            holder.rr.setBackgroundColor(Color.WHITE);
-//
-//
-//            //}
-//
-//
-//            // bast man logic
-///*
-//                if (list.get(position).getRole().equals("bat")) {
-//                        */
-///*if (bat == 6 || bat > 6) {
-//
-//                            Toast.makeText(cc, "only six bastman select", Toast.LENGTH_SHORT).show();
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//
-//
-//                        }*//*
-//
-//                    if (bat >= 6) {
-//
-//                        Toast.makeText(cc, "only six batsman select", Toast.LENGTH_SHORT).show();
-//                        holder.cb.setChecked(false);
-//                        holder.rr.setClickable(false);
-//                        Save(key, false);
-//                    } else if (hello >= 11) {
-//                        holder.cb.setChecked(false);
-//                        holder.rr.setClickable(false);
-//
-//                        Toast.makeText(cc, "you doesn't select more than 11" + hello, Toast.LENGTH_SHORT).show();
-//
-//
-//                    } else {
-//                        holder.rr.setBackgroundColor(ContextCompat.getColor(cc, R.color.PlayerSelected));
-//                        db.AddPlayer(list.get(position).getId(), mobile, list.get(position).getPname(), list.get(position).getTname(), list.get(position).getRole(), list.get(position).getPts(), list.get(position).getCredits(), null, null);
-//                        hello++;
-//                        bat++;
-//                        creditPoints++;
-////                            Toast.makeText(cc, "You select "+hello, Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                    if (list.get(position).getRole().equals("all")) {
-//
-//                        */
-///*if (all < 1 || all > 6) {
-//
-//                            Toast.makeText(cc, "only 4  all rounder  select", Toast.LENGTH_SHORT).show();
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//                            Save(key,false);
-//
-//
-//                        }
-//
-//                        if (all >= 6) {
-//
-//                            Toast.makeText(cc, "only 4  all rounder  select", Toast.LENGTH_SHORT).show();
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//                            Save(key,false);
-//
-//
-//                        }
-//                        else if(hello>=11){
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//
-//                            Toast.makeText(cc, "you doesn't select more than 11" + hello, Toast.LENGTH_SHORT).show();
-//
-//
-//                        }
-//                         else {
-//                            holder.rr.setBackgroundColor(ContextCompat.getColor(cc, R.color.PlayerSelected));
-//                            db.AddPlayer(list.get(position).getId(), mobile, list.get(position).getPname(), list.get(position).getTname(), list.get(position).getRole(), list.get(position).getPts(), list.get(position).getCredits(), null, null);
-//
-//                            hello++;
-//                            all++;
-//                            creditPoints++;
-//
-//
-//
-//
-////                            holder.rr.setBackgroundColor(ContextCompat.getColor(cc,R.color.PlayerSelected));
-////                            db.AddPlayer(list.get(position).getId(),mobile,list.get(position).getPname(),list.get(position).getTname(),list.get(position).getRole(),list.get(position).getPts(),list.get(position).getCredits(),null,null);
-////
-////                            hello++;
-////                            all++;
-////                            creditPoints++;
-//
-////                            Toast.makeText(cc, "You select "+hello, Toast.LENGTH_SHORT).show();
-//
-//
-//                    }
-//
-//                    }
-//                    if(list.get(position).getRole().equals("bowl")){
-//                        if (bwl<1 || bwl>6 ){
-//
-//                            Toast.makeText(cc,"only 6  bowler  select",Toast.LENGTH_SHORT).show();
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//                            Save(key,false);
-//
-//                        }/*else if(hello==11 || hello>=11){
-//                                holder.cb.setChecked(false);
-//                                holder.rr.setClickable(false);
-//                                Toast.makeText(cc, "You Does not  Select More Than 11 Player  "+hello, Toast.LENGTH_SHORT).show();
-//
-//                            }
-//
-//                        else if(hello>=11){
-//                            holder.cb.setChecked(false);
-//                            holder.rr.setClickable(false);
-//
-//                            Toast.makeText(cc, "you doesn't select more than 11" + hello, Toast.LENGTH_SHORT).show();
-//                        }
-//                        else{
-//
-////                            Toast.makeText(cc, "You select "+hello, Toast.LENGTH_SHORT).show();
-//
-//                            }
-//
-//
-//                        }
-//
-//
-//
-//                }
-//                else {
-//                    Save(key, false);
-//                    holder.rr.setBackgroundColor(Color.WHITE);
-//                    db.RemovePlayer(mobile, list.get(position).getId());
-//                    hello--;
-//                    if(list.get(position).getRole().equals("wk")){
-//
-//                        wk--;
-//                        creditPoints--;
-//                        Toast.makeText(cc, ""+wk, Toast.LENGTH_SHORT).show();
-//                    }
-//                    if(list.get(position).getRole().equals("bat")){
-//                        bat--;
-//                        creditPoints--;
-//                        Toast.makeText(cc, ""+bat, Toast.LENGTH_SHORT).show();
-//                    }
-//                    if(list.get(position).getRole().equals("all")){
-//                        all--;
-//                        creditPoints--;
-//                        Toast.makeText(cc, ""+all, Toast.LENGTH_SHORT).show();
-//                    }
-//                    if(list.get(position).getRole().equals("bowl")){
-//                        bwl--;
-//                        creditPoints--;
-//                        Toast.makeText(cc, ""+bwl, Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//                SharedPreferences.Editor editor1=sp.edit();
-//                editor1.putInt("Key",hello);
-//                editor1.putInt("wKey",wk);
-//                editor1.putInt("bKey",bat);
-//                editor1.putInt("aKey",all);
-//                editor1.putInt("bwlKey",bwl);
-//                editor1.putInt("creditPoints",creditPoints);
-//                editor1.commit();
-////                editor1.clear();
-////                editor1.apply();
-//            }
-//        });
-//        if(holder.cb.isChecked()){
-//            holder.rr.setBackgroundColor(ContextCompat.getColor(cc,R.color.PlayerSelected));
-//        }
-//        else {
-//            holder.rr.setBackgroundColor(Color.WHITE);
-//        }
-//
-//    }
-//
-
-///
-//
-////
-//        }
-//    }
-
-
-
-
-    //-------------------------------------
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
@@ -388,201 +81,11 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
         holder.ttpts.setText(list.get(position).getPts());
         holder.ttstatus.setText(list.get(position).getStatus());
         holder.ttname.setText(list.get(position).getPname());
-        //boolean check = Update(list.get(position).getPname());
         boolean check = SelectedData.getSelectedData().getPlayer(key);
         Log.e(TAG, "onBindViewHolder: "+position+" "+check );
-        //holder.cb.setOnCheckedChangeListener(null);
 
         holder.cb.setChecked(check);
-//        holder.cb.setChecked(Update(key));
 
-        /*holder.cb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                updateCheckValues((!check),position,holder.cb,holder.rr);
-
-
-            }
-        });*/
-
-
-
-
-
-        /*holder.cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-
-                }
-
-
-
-        });*/
-
-
-//        holder.cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                SharedPreferences sp=cc.getSharedPreferences("Counts",Context.MODE_PRIVATE);
-////                hello=sp.getInt("Key",0);
-////                wk=sp.getInt("wKey",0);
-////                bat=sp.getInt("bKey",0);
-////                all=sp.getInt("aKey",0);
-////                bwl=sp.getInt("bwlKey",0);
-//
-////
-////                wk=sp.getInt("wKey",d.getCountRole("wk"));
-////                bat=sp.getInt("bKey",d.getCountRole("bat"));
-////                all=sp.getInt("aKey",d.getCountRole("all"));
-////                bwl=sp.getInt("bwlKey",d.getCountRole("bwl"));
-//
-//
-//                 if(list.get(position).getRole().equals("wk")){
-//                   int value= fun(d,1,key,holder.cb,"wk");
-//
-//
-//                    if(value<4 && b==true){
-//
-//                        fun11(d,key,holder.cb,11);
-//                        fun7(d,7,key,holder.cb,list.get(position).getCountry());
-//
-//                        fun100(d);
-//                        d.CountRole("wk");
-//
-//
-//
-//                        if((count<1 && full<11) || countrycount<7){
-//
-//                            d.Save(list.get(position).getPname(),list.get(position).getRole(),list.get(position).getCountry(),list.get(position).getPname1());
-//                          //  Save(key,true);
-//                        }
-//
-//                        else {
-//                            Save(key,false);
-//                            holder.cb.setChecked(false);
-//                        }
-//                    }
-//
-//                    else {
-//                        d.Remove(mm.getPname());
-//                    //    Save(key,false);
-//                        holder.cb.setChecked(false);
-////                            cb.setChecked(false);
-//                            Toast.makeText(cc, "you can select maximum four wicket keeper.", Toast.LENGTH_SHORT).show();
-//
-//                    }
-//
-//
-//                }
-//
-//                if(list.get(position).getRole().equals("bat")){
-//                    int value= fun(d,6,key,holder.cb,"bat");
-//
-//                    if(value<6 && b==true){
-//                        fun11(d,key,holder.cb,11);
-//                        fun7(d,7,key,holder.cb,list.get(position).getCountry());
-//
-//                        fun100(d);
-//
-//                        if((count<6 && full<11) || countrycount<7){
-//                            d.Save(list.get(position).getPname(),list.get(position).getRole(),list.get(position).getCountry(),list.get(position).getPoints());
-//                       //     Save(key,true);
-//                        }
-//                        else {
-//                            Save(key,false);
-//                            holder.cb.setChecked(false);
-//                        }
-//                    }
-//
-//                    else {
-//                        d.Remove(mm.getPname());
-//                     //   Save(key,false);
-//                        holder.cb.setChecked(false);
-//                        Toast.makeText(cc, "you can select maximum six batsman", Toast.LENGTH_SHORT).show();
-//
-//                    }
-//                }
-//
-//                if(list.get(position).getRole().equals("all")){
-//                  int value=  fun(d,6,key,holder.cb,"all");
-//
-//                    if(value<4 && b==true){
-//                        fun11(d,key,holder.cb,11);
-//                        fun100(d);
-//                        fun7(d,7,key,holder.cb,list.get(position).getCountry());
-//                        if((count<6 && full<11) || countrycount<7){
-//                            d.Save(list.get(position).getPname(),list.get(position).getRole(),list.get(position).getCountry(),list.get(position).getPoints());
-//                     //       Save(key,true);
-//                        }
-//                        else {
-//                            Save(key,false);
-//                            holder.cb.setChecked(false);
-//                            Toast.makeText(cc, "you can select maximum four all rounder.", Toast.LENGTH_SHORT).show();
-//
-//                        }
-//                    }
-//                    else {
-//                        d.Remove(mm.getPname());
-//                    //    Save(key,false);
-//                        holder.cb.setChecked(false);
-//                        Toast.makeText(cc, "you can select maximum four all rounder.", Toast.LENGTH_SHORT).show();
-//
-//
-//                    }
-//                }
-//
-//                if(list.get(position).getRole().equals("bowl")){
-//                    int value =fun(d,6,key,holder.cb,"bowl");
-//
-//                    if(value<6 && b==true){
-//                        fun100(d);
-//                        fun11(d,key,holder.cb,11);
-//                        fun7(d,7,key,holder.cb,list.get(position).getCountry());
-//
-//                        if((count<6 && full<11) || countrycount<7){
-//                            d.Save(list.get(position).getPname(),list.get(position).getRole(),list.get(position).getCountry(),list.get(position).getPoints());
-//                       //     Save(key,true);
-////
-//                        }
-//                        else {
-//                          //  Save(key,false);
-//                            holder.cb.setChecked(false);
-//                            Toast.makeText(cc, "you can select maximum six bowler.", Toast.LENGTH_SHORT).show();
-//
-//                        }
-//                    }
-//
-//                    else {
-//                        d.Remove(mm.getPname());
-////                        Save(key,false);
-//                        holder.cb.setChecked(false);
-//                        Toast.makeText(cc, "you can select maximum six bowler.>>>>>>", Toast.LENGTH_SHORT).show();
-//
-//
-//                    }
-//                }
-//
-//                wk=sp.getInt("wKey",d.getCountRole("wk"));
-//                bat=sp.getInt("bKey",d.getCountRole("bat"));
-//                all=sp.getInt("aKey",d.getCountRole("all"));
-//                bwl=sp.getInt("bwlKey",d.getCountRole("bwl"));
-//
-//
-//                SharedPreferences.Editor editor1=sp.edit();
-//                editor1.putInt("Key",hello);
-//                editor1.putInt("wKey",wk);
-//                editor1.putInt("bKey",bat);
-//                editor1.putInt("aKey",all);
-//                editor1.putInt("bwlKey",bwl);
-//                editor1.putInt("creditPoints",creditPoints);
-//                editor1.commit();
-//             //   editor1.clear();
-//                editor1.apply();
-//            }
-//        });
 
         if(holder.cb.isChecked()){
             holder.rr.setBackgroundColor(ContextCompat.getColor(cc,R.color.PlayerSelected));
@@ -825,6 +328,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             playerCount(SelectedData.Role.WK,1);
 
                         } else {
+                            SelectedData.getSelectedData().removePlayer(list.get(position).getId());
                             Save(key, false);
                             putPlayer(key,false);
                             playerCount(SelectedData.Role.WK,-1);
@@ -834,6 +338,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                         Log.e(TAG, "updateCheckValues: "+b+" "+value );
 //                            d.Remove(mm.getPname());
                         Save(key, false);
+                        SelectedData.getSelectedData().removePlayer(list.get(position).getId());
                         putPlayer(key,false);
                         playerCount(SelectedData.Role.WK,-1);
                         cb.setChecked(false);
@@ -863,12 +368,14 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             bat++;
                             creditPoints++;
                         } else {
+                            SelectedData.getSelectedData().removePlayer(list.get(position).getId());
                             Save(key, false);
                             putPlayer(key,false);
                             playerCount(SelectedData.Role.BAT,-1);
                             cb.setChecked(false);
                         }
                     } else {
+                        SelectedData.getSelectedData().removePlayer(list.get(position).getId());
                         d.Remove(mm.getPname());
                         Save(key, false);
                         putPlayer(key,false);
@@ -896,6 +403,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             creditPoints++;
                             playerCount(SelectedData.Role.ALL,1);
                         } else {
+                            SelectedData.getSelectedData().removePlayer(list.get(position).getId());
                             Save(key, false);
                             putPlayer(key,false);
                             cb.setChecked(false);
@@ -904,6 +412,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 
                         }
                     } else {
+                        SelectedData.getSelectedData().removePlayer(list.get(position).getId());
 //                            d.Remove(mm.getPname());
                         Save(key, false);
                         putPlayer(key,false);
@@ -934,6 +443,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                             playerCount(SelectedData.Role.BOWL,1);
 //
                         } else {
+                            SelectedData.getSelectedData().removePlayer(list.get(position).getId());
                             Save(key, false);
                             putPlayer(key,false);
                             cb.setChecked(false);
@@ -942,6 +452,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
 
                         }
                     } else {
+                        SelectedData.getSelectedData().removePlayer(list.get(position).getId());
 //                            d.Remove(mm.getPname());
 //                        Save(key,false);
                         cb.setChecked(false);
@@ -953,6 +464,7 @@ public class CreateTeamAdapter extends RecyclerView.Adapter<CreateTeamAdapter.Vi
                 }
 
             }else {
+                SelectedData.getSelectedData().removePlayer(list.get(position).getId());
                 Save(key, false);
                 putPlayer(key,false);
                 rr.setBackgroundColor(Color.WHITE);

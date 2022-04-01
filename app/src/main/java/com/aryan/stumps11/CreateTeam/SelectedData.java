@@ -28,6 +28,16 @@ public class SelectedData {
     private static int teamA = 0;
     private static int teamB = 0;
 
+    public int getRoleCount(String role){
+        int count = 0;
+        for(com.aryan.stumps11.CreateTeam.SelectedData.data data : captainMap.values()){
+            if (data.role.equals(role)){
+                count ++;
+            }
+        }
+        return count;
+    }
+
     public static int getWicketKeeper() {
         return wicketKeeper;
     }
@@ -86,6 +96,10 @@ public class SelectedData {
 
     public HashMap<String,data> getData(){
         return captainMap;
+    }
+
+    public void removePlayer(String key){
+        captainMap.remove(key);
     }
 
     public boolean getPlayer(String key){
